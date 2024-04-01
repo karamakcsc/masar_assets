@@ -129,6 +129,10 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
+doctype_js = {
+    "Asset" : "custom/asset/asset.js", 
+    "Location" : "custom/location/location.js"
+}
 
 # Scheduled Tasks
 # ---------------
@@ -227,3 +231,23 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {"dt": "Custom Field", "filters": [
+        [
+            "name", "in", [
+                "Asset-custom_qr_code_text",
+                "Asset-custom_qr_code",
+                "Asset-custom_supplier_details",
+                "Asset-custom_supplier_id",
+                "Asset-custom_supplier_name",
+                "Asset-custom_invoice_date",
+                "Asset-custom_invoice_no",
+                "Asset-custom_column_break_xpq6r",
+                "Asset-custom_supplier_tax",
+                "Department-custom_department_code",
+                'Location-custom_abr'
+
+            ]
+        ]
+    ]}
+]
