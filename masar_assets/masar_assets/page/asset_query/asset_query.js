@@ -45,7 +45,7 @@ class MyPage {
         let asset = $("#asset").val();
     
         if (asset) {
-            // Call the server method via AJAX to fetch data
+            // Call the server method via AJAX to fetch data//
             frappe.call({
                 method: "masar_assets.api.get_qr_code",
                 args: { name: asset },
