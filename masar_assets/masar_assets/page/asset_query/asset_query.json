@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2024-04-02 02:14:45.695648",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2024-04-02 02:14:45.695648",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "asset-query",
+ "owner": "Administrator",
+ "page_name": "asset-query",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Asset Query"
+}
