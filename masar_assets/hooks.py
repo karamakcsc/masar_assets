@@ -247,6 +247,12 @@ fixtures = [
                 "Department-custom_department_code",
                 "Location-custom_section_break_ofpln",
                 "Location-custom_description",
+                "Location-custom_section_break_5vp5v",
+                "Location-custom_city",
+                "Location-custom_branch",
+                "Location-custom_room_no",
+                "Location-custom_floor",
+                "Location-custom_column_break_kmhwj",
 
             ]
         ]
