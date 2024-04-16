@@ -245,7 +245,8 @@ fixtures = [
                 "Asset-custom_column_break_xpq6r",
                 "Asset-custom_supplier_tax",
                 "Department-custom_department_code",
-                'Location-custom_abr'
+                "Location-custom_section_break_ofpln",
+                "Location-custom_description",
 
             ]
         ]
