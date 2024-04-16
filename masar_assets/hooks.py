@@ -219,7 +219,6 @@ doctype_js = {
 
 # Authentication and authorization
 # --------------------------------
-#
 # auth_hooks = [
 # 	"masar_assets.auth.validate"
 # ]
