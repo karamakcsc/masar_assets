@@ -1,0 +1,210 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-04-16 16:35:15.605450",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "city",
+  "department",
+  "roomnumber",
+  "category",
+  "group",
+  "assetstatus",
+  "brand",
+  "serialcode",
+  "oldbarcode",
+  "ts",
+  "naming_series",
+  "column_break_gvki",
+  "branch",
+  "floor",
+  "roomdescription",
+  "subcategory",
+  "assetbarcode",
+  "condition",
+  "model",
+  "notes",
+  "user",
+  "locations"
+ ],
+ "fields": [
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "City"
+  },
+  {
+   "fieldname": "column_break_gvki",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Branch"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Department"
+  },
+  {
+   "fieldname": "roomnumber",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "RoomNumber"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Category"
+  },
+  {
+   "fieldname": "group",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Group"
+  },
+  {
+   "fieldname": "floor",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Floor"
+  },
+  {
+   "fieldname": "roomdescription",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "RoomDescription"
+  },
+  {
+   "fieldname": "subcategory",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "SubCategory"
+  },
+  {
+   "fieldname": "assetbarcode",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "AssetBarcode"
+  },
+  {
+   "fieldname": "assetstatus",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "AssetStatus"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Brand"
+  },
+  {
+   "fieldname": "serialcode",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "SerialCode"
+  },
+  {
+   "fieldname": "oldbarcode",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "OldBarcode"
+  },
+  {
+   "fieldname": "ts",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "TS"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "JKB-ATM-."
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Condition"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Model"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Notes"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "User"
+  },
+  {
+   "fieldname": "locations",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Locations"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-16 16:46:03.055093",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "JKB Data ATM",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
