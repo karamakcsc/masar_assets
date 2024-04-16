@@ -131,7 +131,7 @@ app_license = "mit"
 # }
 doctype_js = {
     "Asset" : "custom/asset/asset.js", 
-    "Location" : "custom/location/location.js"
+    # "Location" : "custom/location/location.js"
 }
 
 # Scheduled Tasks
