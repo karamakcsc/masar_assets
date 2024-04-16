@@ -1,35 +1,20 @@
-// frappe.ui.form.on("Location", {
-//     location: function(frm){
-//         let mapdata = JSON.parse(frm.doc.location).features[0];
-//         if (mapdata && mapdata.geometry.type == 'Point'){
-//             let lat = mapdata.geometry.coordinates[1]; 
-//             let lon = mapdata.geometry.coordinates[0];
-//             frappe.call({
-//                 type: "GET",
-//                 url: `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`,
-//                 callback: function (r){
-//                     frm.set_value('latitude',parseFloat(r.lat));
-//                     frm.set_value('longitude',parseFloat(r.lon));
-//                     refresh_field(['latitude', 'longitude']);
-//                 }
-//             });
-//         }
-//     },
-//     validate: function(frm){
-//         let mapdata = JSON.parse(frm.doc.location).features[0];
-//         if (mapdata && mapdata.geometry.type == 'Point'){
-//             let lat = mapdata.geometry.coordinates[1]; 
-//             let lon = mapdata.geometry.coordinates[0];
-//             frappe.call({
-//                 type: "GET",
-//                 url: `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`,
-//                 callback: function (r){
-//                     frm.set_value('latitude',parseFloat(r.lat));
-//                     frm.set_value('longitude',parseFloat(r.lon));
-//                     refresh_field(['latitude', 'longitude']);
-//                 }
-//             });
-//         }
-//     }
-// });
-// //
+frappe.ui.form.on("Location", {
+    location: function(frm) {
+        let locationData = JSON.parse(frm.doc.location);
+
+        if (locationData && locationData.features && locationData.features.length > 0) {
+            let lat = locationData.features[0].geometry.coordinates[1]; 
+            let lon = locationData.features[0].geometry.coordinates[0]; 
+            
+            frm.set_value('latitude', lat);
+            frm.set_value('longitude', lon);
+        } else {
+            frm.set_value('latitude', null);
+            frm.set_value('longitude', null);
+        }
+
+        // Refresh fields
+        frm.refresh_field('latitude');
+        frm.refresh_field('longitude');
+    }
+});
