@@ -135,7 +135,6 @@ doctype_js = {
 
 # Scheduled Tasks
 # ---------------
-#
 # scheduler_events = {
 # 	"all": [
 # 		"masar_assets.tasks.all"
