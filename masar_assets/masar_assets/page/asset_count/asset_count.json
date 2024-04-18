@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2024-04-17 14:20:46.700764",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2024-04-17 14:21:12.167423",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "asset-count",
+ "owner": "Administrator",
+ "page_name": "asset-count",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Asset Count"
+}

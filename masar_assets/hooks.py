@@ -122,13 +122,11 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+    "Asset": {
+        "before_submit": "masar_assets.custom.asset.asset.before_submit"  
+    }
+}
 doctype_js = {
     "Asset" : "custom/asset/asset.js",
 }

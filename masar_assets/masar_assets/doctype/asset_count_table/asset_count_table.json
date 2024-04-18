@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-17 14:28:09.834331",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "asset_id",
+  "asset_name",
+  "item_code",
+  "register_location",
+  "status",
+  "section_break_yrys",
+  "current_location"
+ ],
+ "fields": [
+  {
+   "fieldname": "asset_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Asset ID",
+   "options": "Asset",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset_id.asset_name",
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Asset Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset_id.item_code",
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Match\nMissing\nAdditional",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset_id.location",
+   "fieldname": "register_location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Register Location",
+   "options": "Location",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_location",
+   "fieldtype": "Data",
+   "label": "Current Location",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_yrys",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-18 11:42:13.887263",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "Asset Count Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
