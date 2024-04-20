@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-20 10:39:12.358735",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "start_process",
+  "end_process",
+  "column_break_sjge",
+  "process_status",
+  "duration"
+ ],
+ "fields": [
+  {
+   "fieldname": "start_process",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Start Process",
+   "read_only": 1
+  },
+  {
+   "fieldname": "end_process",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "End Process",
+   "read_only": 1
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "in_list_view": 1,
+   "label": "Duration",
+   "read_only": 1
+  },
+  {
+   "fieldname": "process_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Process Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sjge",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-20 15:08:37.600766",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "Asset Counts Timer Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

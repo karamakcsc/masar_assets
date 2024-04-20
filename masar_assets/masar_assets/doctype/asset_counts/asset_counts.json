@@ -6,14 +6,29 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "section_break_wvww",
   "naming_series",
   "posting_date",
+  "user_id",
   "column_break_ghuo",
   "location",
-  "user_id",
+  "exp_num_asset",
+  "is_end_process",
+  "uncompleted_process",
   "section_break_ysnv",
   "items",
-  "amended_from"
+  "section_break_xqjz",
+  "total_asset_count",
+  "number_of_match_assets",
+  "column_break_udcp",
+  "number_of_additional_assets",
+  "number_of_missing_assets",
+  "section_break_jkcc",
+  "timer_table",
+  "section_break_pfvl",
+  "amended_from",
+  "column_break_ddzt",
+  "total_duration"
  ],
  "fields": [
   {
@@ -66,12 +81,91 @@
    "fieldtype": "Table",
    "label": "Items",
    "options": "Asset Count Table"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_end_process",
+   "fieldtype": "Check",
+   "label": "End Process",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_wvww",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_jkcc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "timer_table",
+   "fieldtype": "Table",
+   "label": "Timer",
+   "options": "Asset Counts Timer Details"
+  },
+  {
+   "fieldname": "total_duration",
+   "fieldtype": "Duration",
+   "label": "Total Duration"
+  },
+  {
+   "fieldname": "section_break_pfvl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ddzt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "exp_num_asset",
+   "fieldtype": "Int",
+   "label": "Expected Number of Asset",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_xqjz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_asset_count",
+   "fieldtype": "Int",
+   "label": "Number of Asset Counts",
+   "read_only": 1
+  },
+  {
+   "fieldname": "number_of_match_assets",
+   "fieldtype": "Int",
+   "label": "Number of Match Assets",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_udcp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "number_of_additional_assets",
+   "fieldtype": "Int",
+   "label": "Number of Additional Assets",
+   "read_only": 1
+  },
+  {
+   "fieldname": "number_of_missing_assets",
+   "fieldtype": "Int",
+   "label": "Number of Missing Assets",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "uncompleted_process",
+   "fieldtype": "Check",
+   "label": "Uncompleted Process",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-18 11:47:26.234649",
+ "modified": "2024-04-20 15:03:45.808675",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "Asset Counts",
