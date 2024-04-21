@@ -111,8 +111,8 @@ class MyPage {
                             ExpNumContainer.empty();
                             if (response.message) {
                                 let message = `
-                                <b>Expected Items: &nbsp;&nbsp; ${this.ExpNum}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                Items Counted : ${response.message.match}</b><br><br>
+                                <b><span style="color: red;">Expected Items: &nbsp;&nbsp; ${this.ExpNum}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span style="color: green;">Matched Items Counted : ${response.message.match}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: orange;">Total Items Counted : ${response.message.total_count}</b><br><br>
                                 `;
                                 ExpNumContainer.html(message);
                             }

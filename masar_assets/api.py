@@ -211,5 +211,6 @@ def get_exp_num(doc_name):
     WHERE location = %s """, (location) , as_dict = True)
     return {
         'exp':str(len(result)), 
-        'match': str(doc.number_of_match_assets)
+        'match': str(doc.number_of_match_assets),
+        'total_count':str(doc.total_asset_count)
     }
