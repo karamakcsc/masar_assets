@@ -11,3 +11,4 @@ frappe.ui.form.on('Asset Counts', {
 		frm.get_field('items').grid.cannot_add_rows = true;
 	}
 });
+

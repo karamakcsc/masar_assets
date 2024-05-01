@@ -9,6 +9,17 @@ import pymysql
 import math
 from datetime import datetime
 
+
+@frappe.whitelist()
+def get_qr_code_query(name=None):
+    result = frappe.db.sql("""
+        SELECT *
+        FROM `tabAsset` ta
+        WHERE ta.name = %s
+        ORDER BY ta.creation DESC
+        """, (name,), as_dict=True)
+    return result
+
 @frappe.whitelist()
 def get_qr_code(selected_location, name=None):
     result = frappe.db.sql("""
@@ -157,7 +168,8 @@ def end_process_check( timer_row_name , doc_name = None , selected_doc = None ):
     for row in update_doc.timer_table:
         total_duration += row.duration
     update_doc.total_duration = total_duration
-    update_doc.save()
+    update_doc.submit()
+
 @frappe.whitelist()
 def uncompleted_process_check( timer_row_name , doc_name = None , selected_doc = None ):
     if doc_name:

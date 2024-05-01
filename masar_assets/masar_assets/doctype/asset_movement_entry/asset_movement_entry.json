@@ -1,0 +1,167 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-04-28 21:22:39.449439",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_admj",
+  "naming_series",
+  "posting_date",
+  "asset_counts",
+  "column_break_qsau",
+  "company",
+  "section_break_49sw",
+  "amended_from",
+  "assets_tab",
+  "location",
+  "column_break_ojnl",
+  "status",
+  "num_of_asset",
+  "section_break_uuim",
+  "source_location",
+  "column_break_rbzj",
+  "target_location",
+  "section_break_sbyb",
+  "items"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_49sw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Asset Movement Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_admj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Name",
+   "options": "ASS-MOV-ENT-."
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Asset Movement Entry Detail"
+  },
+  {
+   "fieldname": "column_break_qsau",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "num_of_asset",
+   "fieldtype": "Int",
+   "label": "Number of Asset",
+   "read_only": 1
+  },
+  {
+   "fieldname": "asset_counts",
+   "fieldtype": "Link",
+   "label": "Asset Counts",
+   "options": "Asset Counts"
+  },
+  {
+   "fieldname": "assets_tab",
+   "fieldtype": "Tab Break",
+   "label": "Assets"
+  },
+  {
+   "fetch_from": "asset_counts.location",
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ojnl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nMissing\nAdditional"
+  },
+  {
+   "fieldname": "section_break_sbyb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_uuim",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "asset_counts.location",
+   "fieldname": "source_location",
+   "fieldtype": "Link",
+   "label": "Source Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "column_break_rbzj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_location",
+   "fieldtype": "Link",
+   "label": "Target Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-04-28 22:48:40.980345",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "Asset Movement Entry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

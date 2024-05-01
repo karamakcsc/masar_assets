@@ -24,8 +24,8 @@ class MyPage {
         const body = `
             <h1>Asset Count</h1>
             <h3>Asset ID</h3>
-            <button type="button" id="load-button">Load Previous DocType</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" id="new-button">New DocType</button><br><br>
+            <button type="button" id="load-button">Load Previous Document</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" id="new-button">New Document</button><br><br>
             
             
             <form id="document-form" style="display: none;">
