@@ -14,7 +14,7 @@
 //             }
 //         });
 //     }
-// });
+/// });
 
 frappe.ui.form.on("Asset","onload", function(frm) {
 
