@@ -128,7 +128,8 @@ doc_events = {
     }
 }
 doctype_js = {
-    "Asset" : "custom/asset/asset.js",
+    "Asset" : "custom/asset/asset.js", 
+    "User" : "custom/user/user.js"
 }
 
 # Scheduled Tasks
