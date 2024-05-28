@@ -41,10 +41,10 @@ frappe.ui.form.on("User", "onload", function(frm) {
     }
 });
 
-frappe.ui.form.on("Role", "onload", function(frm) {
-    if (!frappe.user.has_role('System Manager')) {
-        frm.toggle_display("disabled", false)
-        frm.refresh_fields();
-        frm.set_visible("disabled", false);
-    }
-});
+// frappe.ui.form.on("User", "onload", function(frm) {
+//     if (!frappe.user.has_role('System Manager')) {
+//         frm.toggle_display("disabled", false)
+//         frm.refresh_fields();
+//         frm.set_visible("disabled", false);
+//     }
+// });
