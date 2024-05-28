@@ -29,24 +29,47 @@ frappe.ui.form.on("User", "onload", function(frm) {
     }
 });
 
-frappe.ui.form.on("User", "onload", function(frm) {
-    if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('JKB User Management-Checker') ) {
-        var df_enabled = frappe.meta.get_docfield("User", "enabled", frm.doc.name);
-        df_enabled.read_only = 0;
-        frm.toggle_display("enabled", false);
+
+frappe.ui.form.on("User", {
+    onload: function(frm) {
+        if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('JKB User Management-Checker')) {
+            frm.toggle_display("enabled", false);
+        }
+
+        if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('Workspace Manager')) {
+            const fields_to_hide = [
+                "sb_allow_modules", 
+                "module_profile", 
+                "modules_html", 
+                "block_modules", 
+                "home_settings"
+            ];
+            fields_to_hide.forEach(field => frm.toggle_display(field, false));
+        }
+
+        frm.refresh_fields();
+    },
+
+    refresh: function(frm) {
+        if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('Workspace Manager')) {
+            const fields_to_hide = [
+                "sb_allow_modules", 
+                "module_profile", 
+                "modules_html", 
+                "block_modules", 
+                "home_settings"
+            ];
+            fields_to_hide.forEach(field => frm.toggle_display(field, false));
+        }
+
+        if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('JKB User Management-Checker')) {
+            frm.toggle_display("enabled", false);
+        }
+
         frm.refresh_fields();
     }
 });
-frappe.ui.form.on("User", "onload", function(frm) {
-    if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('Workspace Manager')){
-        frm.toggle_display("sb_allow_modules", false);
-        frm.toggle_display("module_profile", false);
-        frm.toggle_display("modules_html", false);
-        frm.toggle_display("block_modules", false);
-        frm.toggle_display("home_settings", false);
-        frm.refresh_fields();
-    }
-});
+
 
 // frappe.ui.form.on("User", "onload", function(frm) {
 //     if (!frappe.user.has_role('System Manager')) {
