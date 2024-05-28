@@ -32,11 +32,11 @@ frappe.ui.form.on("User", "onload", function(frm) {
 
 frappe.ui.form.on("User", {
     onload: function(frm) {
-        if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('JKB User Management-Checker')) {
+        if (!frappe.user.has_role('System Manager') || !frappe.user.has_role('JKB User Management-Checker')) {
             frm.toggle_display("enabled", false);
         }
 
-        if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('Workspace Manager')) {
+        if (!frappe.user.has_role('System Manager') || !frappe.user.has_role('Workspace Manager')) {
             const fields_to_hide = [
                 "sb_allow_modules", 
                 "module_profile", 
@@ -51,7 +51,7 @@ frappe.ui.form.on("User", {
     },
 
     refresh: function(frm) {
-        if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('Workspace Manager')) {
+        if (!frappe.user.has_role('System Manager') || !frappe.user.has_role('Workspace Manager')) {
             const fields_to_hide = [
                 "sb_allow_modules", 
                 "module_profile", 
@@ -62,7 +62,7 @@ frappe.ui.form.on("User", {
             fields_to_hide.forEach(field => frm.toggle_display(field, false));
         }
 
-        if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('JKB User Management-Checker')) {
+        if (!frappe.user.has_role('System Manager') || !frappe.user.has_role('JKB User Management-Checker')) {
             frm.toggle_display("enabled", false);
         }
 
