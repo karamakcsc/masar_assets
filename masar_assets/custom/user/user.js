@@ -20,10 +20,17 @@ frappe.ui.form.on("User", {
 
 
 
+frappe.ui.form.on("User", "onload", function(frm) {
+    if (frappe.user.has_role('JKB User Management-Maker') ) {
+        var df_enabled = frappe.meta.get_docfield("User", "enabled", frm.doc.name);
+        df_enabled.read_only = 1;
+        frm.set_value("enabled", 1);
+        frm.refresh_fields();
+    }
+});
 
-
-frappe.ui.form.on("User", "refresh", function(frm) {
-    if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('JKB User Management-Checker')  ) {
+frappe.ui.form.on("User", "onload", function(frm) {
+    if (!frappe.user.has_role('System Manager') && !frappe.user.has_role('JKB User Management-Checker') ) {
         var df_enabled = frappe.meta.get_docfield("User", "enabled", frm.doc.name);
         df_enabled.read_only = 0;
         frm.toggle_display("enabled", false);
