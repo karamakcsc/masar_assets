@@ -1,0 +1,155 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-02 10:01:37.587947",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "is_exist_user",
+  "link_user",
+  "user_name",
+  "user_email",
+  "first_name",
+  "column_break_tzim",
+  "is_enable",
+  "posting_date",
+  "last_name",
+  "role_section",
+  "has_role_profile",
+  "role_profile",
+  "user_role_table",
+  "section_break_vfg7",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_vfg7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "User Management",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_exist_user",
+   "fieldtype": "Check",
+   "label": "Exist User"
+  },
+  {
+   "depends_on": "eval: doc.is_exist_user ==1 ",
+   "fieldname": "link_user",
+   "fieldtype": "Link",
+   "label": "User",
+   "mandatory_depends_on": "eval: doc.is_exist_user ==1 ",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval: doc.is_exist_user ==1 ",
+   "fetch_from": "link_user.full_name",
+   "fieldname": "user_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "User Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_tzim",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.is_exist_user ==0 ",
+   "fieldname": "user_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "User Email",
+   "mandatory_depends_on": "eval: doc.is_exist_user ==0"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_enable",
+   "fieldtype": "Check",
+   "label": "Enable"
+  },
+  {
+   "fieldname": "role_section",
+   "fieldtype": "Section Break",
+   "label": "Role"
+  },
+  {
+   "depends_on": "eval:doc.has_role_profile == 0",
+   "fieldname": "user_role_table",
+   "fieldtype": "Table",
+   "label": "User Role",
+   "options": "User Management Details"
+  },
+  {
+   "depends_on": "eval: doc.is_exist_user ==0",
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "depends_on": "eval: doc.is_exist_user ==0",
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_role_profile",
+   "fieldtype": "Check",
+   "label": "Role Profile"
+  },
+  {
+   "depends_on": "eval:doc.has_role_profile == 1",
+   "fieldname": "role_profile",
+   "fieldtype": "Link",
+   "label": "Role Profile",
+   "mandatory_depends_on": "eval:doc.has_role_profile == 1",
+   "options": "Role Profile"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-02 11:20:25.562617",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "User Management",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_views": 1
+}
