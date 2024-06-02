@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2024-06-02 10:01:37.587947",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -19,7 +20,9 @@
   "role_profile",
   "user_role_table",
   "section_break_vfg7",
-  "amended_from"
+  "amended_from",
+  "column_break_pumc",
+  "naming_series"
  ],
  "fields": [
   {
@@ -52,7 +55,7 @@
    "depends_on": "eval: doc.is_exist_user ==1 ",
    "fieldname": "link_user",
    "fieldtype": "Link",
-   "label": "User",
+   "label": "User Email",
    "mandatory_depends_on": "eval: doc.is_exist_user ==1 ",
    "options": "User"
   },
@@ -122,15 +125,27 @@
    "label": "Role Profile",
    "mandatory_depends_on": "eval:doc.has_role_profile == 1",
    "options": "Role Profile"
+  },
+  {
+   "fieldname": "column_break_pumc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Name",
+   "options": "USR-MGM-."
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-02 11:20:25.562617",
+ "modified": "2024-06-02 16:01:46.508200",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "User Management",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
