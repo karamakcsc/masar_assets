@@ -43,13 +43,15 @@
    "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
-   "label": "Posting Date"
+   "label": "Posting Date",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "is_exist_user",
    "fieldtype": "Check",
-   "label": "Exist User"
+   "label": "Exist User",
+   "read_only_depends_on": "eval:(doc.workflow_state == 'Activate/Deactivate User Account' || doc.workflow_state == 'View The Role' ||doc.workflow_state == 'Approve on Control User Role')"
   },
   {
    "depends_on": "eval: doc.is_exist_user ==1 ",
@@ -57,7 +59,8 @@
    "fieldtype": "Link",
    "label": "User Email",
    "mandatory_depends_on": "eval: doc.is_exist_user ==1 ",
-   "options": "User"
+   "options": "User",
+   "read_only_depends_on": "eval:(doc.workflow_state == 'Activate/Deactivate User Account' || doc.workflow_state == 'View The Role' ||doc.workflow_state == 'Approve on Control User Role')"
   },
   {
    "depends_on": "eval: doc.is_exist_user ==1 ",
@@ -80,43 +83,51 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "User Email",
-   "mandatory_depends_on": "eval: doc.is_exist_user ==0"
+   "mandatory_depends_on": "eval: doc.is_exist_user ==0",
+   "read_only_depends_on": "eval:(doc.workflow_state == 'Activate/Deactivate User Account' || doc.workflow_state == 'View The Role' ||doc.workflow_state == 'Approve on Control User Role')"
   },
   {
    "default": "1",
    "fieldname": "is_enable",
    "fieldtype": "Check",
-   "label": "Enable"
+   "label": "Enable",
+   "read_only_depends_on": "eval:doc.workflow_state != 'Activate/Deactivate User Account'"
   },
   {
+   "depends_on": "eval:doc.workflow_state == 'View The Role' || doc.workflow_state == 'View Role'",
    "fieldname": "role_section",
    "fieldtype": "Section Break",
-   "label": "Role"
+   "label": "Role",
+   "read_only_depends_on": "eval:doc.workflow_state == 'View The Role'"
   },
   {
    "depends_on": "eval:doc.has_role_profile == 0",
    "fieldname": "user_role_table",
    "fieldtype": "Table",
    "label": "User Role",
-   "options": "User Management Details"
+   "options": "User Management Details",
+   "read_only_depends_on": "eval:doc.workflow_state == 'View The Role'"
   },
   {
    "depends_on": "eval: doc.is_exist_user ==0",
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "First Name"
+   "label": "First Name",
+   "read_only_depends_on": "eval:(doc.workflow_state == 'Activate/Deactivate User Account' || doc.workflow_state == 'View The Role' ||doc.workflow_state == 'Approve on Control User Role')"
   },
   {
    "depends_on": "eval: doc.is_exist_user ==0",
    "fieldname": "last_name",
    "fieldtype": "Data",
-   "label": "Last Name"
+   "label": "Last Name",
+   "read_only_depends_on": "eval:(doc.workflow_state == 'Activate/Deactivate User Account' || doc.workflow_state == 'View The Role' ||doc.workflow_state == 'Approve on Control User Role')"
   },
   {
    "default": "0",
    "fieldname": "has_role_profile",
    "fieldtype": "Check",
-   "label": "Role Profile"
+   "label": "Role Profile",
+   "read_only_depends_on": "eval:doc.workflow_state == 'View The Role'"
   },
   {
    "depends_on": "eval:doc.has_role_profile == 1",
@@ -124,7 +135,8 @@
    "fieldtype": "Link",
    "label": "Role Profile",
    "mandatory_depends_on": "eval:doc.has_role_profile == 1",
-   "options": "Role Profile"
+   "options": "Role Profile",
+   "read_only_depends_on": "eval:doc.workflow_state == 'View The Role'"
   },
   {
    "fieldname": "column_break_pumc",
@@ -141,7 +153,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-02 16:01:46.508200",
+ "modified": "2024-06-06 14:34:02.717521",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "User Management",

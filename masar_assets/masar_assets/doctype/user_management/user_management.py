@@ -39,7 +39,7 @@ class UserManagement(Document):
 		user_doc.email = self.user_email
 		user_doc.first_name = self.first_name
 		user_doc.last_name = self.last_name
-		if self.has_role_profile == 1:
+		if self.has_role_profile == 1: #
 			user_doc.role_profile_name = self.role_profile
 			role_profile_roles = frappe.db.sql("""
 				SELECT thr.`role` FROM `tabRole Profile` trp 
