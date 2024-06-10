@@ -15,6 +15,7 @@
   "is_enable",
   "posting_date",
   "last_name",
+  "purpose",
   "role_section",
   "has_role_profile",
   "role_profile",
@@ -148,12 +149,21 @@
    "hidden": 1,
    "label": "Name",
    "options": "USR-MGM-."
+  },
+  {
+   "depends_on": "eval: doc.is_exist_user ==1 ",
+   "fieldname": "purpose",
+   "fieldtype": "Select",
+   "label": "Purpose",
+   "mandatory_depends_on": "eval: doc.is_exist_user ==1 ",
+   "options": "\nUpdate Role\nActivate/Deactivate User Account",
+   "read_only_depends_on": "eval:(doc.workflow_state == 'Activate/Deactivate User Account' || doc.workflow_state == 'View The Role' ||doc.workflow_state == 'Approve on Control User Role')"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-06 14:34:02.717521",
+ "modified": "2024-06-06 15:37:32.725520",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "User Management",
@@ -171,6 +181,17 @@
    "role": "System Manager",
    "share": 1,
    "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "JKB User Management-Checker",
+   "select": 1,
+   "share": 1,
    "write": 1
   }
  ],
