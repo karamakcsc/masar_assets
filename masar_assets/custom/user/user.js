@@ -80,7 +80,7 @@ frappe.ui.form.on("User", {
                 "module_profile", 
                 "modules_html", 
                 "block_modules", 
-                "home_settings"
+                "home_settings",
             ];
             fields_to_hide.forEach(field => frm.toggle_display(field, false));
         }
@@ -88,3 +88,5 @@ frappe.ui.form.on("User", {
         frm.refresh_fields();
     }
 });
+
+//// Mohamad Khalil Code /////
