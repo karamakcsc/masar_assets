@@ -19,7 +19,28 @@ def get_qr_code_query(name=None):
         ORDER BY ta.creation DESC
         """, (name,), as_dict=True)
     return result
+@frappe.whitelist()
+def get_asset_in_this_location(location):
+    if not location:
+        frappe.msgprint('Please Select A location')
+        return 'on location'
+    result = frappe.db.sql("""
+            SELECT *
+            FROM `tabAsset` ta
+            WHERE ta.location = %s
+            ORDER BY ta.creation DESC
+    """ , (location) , as_dict = True)
+    return result
 
+@frappe.whitelist()
+def get_asset_in_category(category):
+    result = frappe.db.sql("""
+            SELECT *
+            FROM `tabAsset` ta
+            WHERE ta.asset_category = %s
+            ORDER BY ta.creation DESC
+    """ , (category) , as_dict = True)
+    return result
 @frappe.whitelist()
 def get_qr_code(selected_location, name=None):
     result = frappe.db.sql("""
@@ -67,6 +88,11 @@ def get_location():
             WHERE tl.is_group = 0
             """, as_dict=True)
     return locations
+
+@frappe.whitelist()
+def get_category():
+    return frappe.db.sql("""SELECT name  FROM `tabAsset Category` tac """ , as_dict = True )
+    
 
 @frappe.whitelist()
 def insert_asset_in_table(doc_name , asset ,selected_location  , document = None ):
