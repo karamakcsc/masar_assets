@@ -33,6 +33,23 @@ def get_asset_in_this_location(location):
     return result
 
 @frappe.whitelist()
+def multi_filters_asset(multicategory = None , multilocation = None , multidepartment = None):
+    cond = ''
+    if multicategory: 
+        cond+= f" AND ta.asset_category = '{multicategory}'"
+    if multilocation: 
+        cond+= f" AND ta.location = '{multilocation}'"
+    if multidepartment: 
+        cond+= f" AND ta.department = '{multidepartment}'"
+    
+    result = frappe.db.sql(f"""
+            SELECT *
+            FROM `tabAsset` ta
+            WHERE 1=1 {cond}
+            ORDER BY ta.creation DESC
+    """  , as_dict = True)
+    return result
+@frappe.whitelist()
 def get_asset_in_category(category):
     result = frappe.db.sql("""
             SELECT *
@@ -93,6 +110,9 @@ def get_location():
 def get_category():
     return frappe.db.sql("""SELECT name  FROM `tabAsset Category` tac """ , as_dict = True )
     
+@frappe.whitelist()
+def get_department():
+    return frappe.db.sql("""SELECT name FROM tabDepartment td""" ,  as_dict = True )
 
 @frappe.whitelist()
 def insert_asset_in_table(doc_name , asset ,selected_location  , document = None ):

@@ -18,7 +18,11 @@ class MyPage {
             single_column: true
         });
         this.selectedLocation = '';
+        this.selectedDepartment = '';
         this.selectedCategory = '';
+        this.multicategory ='';
+        this.multilocation ='';
+        this.multidepartment ='';
         this.make();
     }
 
@@ -27,7 +31,8 @@ class MyPage {
             <h1>Asset Query</h1>
             <button type="button" id="asset-button">By Asset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" id="location-button">By Location</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" id="category-button">By Category</button><br><br>
+            <button type="button" id="category-button">By Category</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" id="multi-button">Multi Filters</button><br><br>
             <form id="asset-form" style="display: none;"> 
                 <label for="asset-input">ID:</label>
                 <input type="text" id="asset-input" name="asset"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,15 +54,50 @@ class MyPage {
                 <button type="button" id="get-new-asset-by-category">Get Assets</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button type="button" id="category-back-button">Back</button><br><br><br><br>
             </form>
+            <form id ="multi-form" style="display: none;">
+                <label for="multi-category" style="margin-right: 10px;">Category:</label>
+                <select id="multi-category" name="multi-category">
+                    <option value="">Select Category</option>
+                </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="multi-location" style="margin-right: 10px;">Location:</label>
+                <select id="multi-location" name="multi-location">
+                    <option value="">Select Location</option>
+                </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="multi-department" style="margin-right: 10px;">Department:</label>
+                <select id="multi-department" name="department">
+                    <option value="">Select Department</option>
+                </select>
+                <br><br>
+                <button type="button" id="get-asset-multi-filters">Get Assets</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" id="multi-back-button">Back</button><br><br><br><br>
+            </form>
             <p>Enter the Asset ID, and the information will be displayed automatically.</p><br><br>
             <div id="result-container"></div>
             <div id="location-result-container"></div>
             <div id="category-result-container"></div>
+            <div id="multi-result-container"> </div>
         `;
         this.page.main.html(body);
-
         // Event listeners
+        $("#multi-back-button").on("click", () => {
+            $("#multi-form").hide();
+            $("#asset-button").show();
+            $("#location-button").show();
+            $("#multi-container").hide();
+            $("#multi-result-container").hide();
+            $("#category-button").show();
+            $("#multi-button").show();
+        });
+        $("#multi-button").on("click", () => {
+            $("#multi-button").hide();
+            $("#asset-button").hide();
+            $("#multi-form").show();
+            $("#location-button").hide();
+            $("#multi-result-container").show();
+            $("#category-button").hide();
+        });
         $("#asset-button").on("click", () => {
+            $("#multi-button").hide();
             $("#asset-button").hide();
             $("#asset-form").show();
             $("#location-button").hide();
@@ -66,6 +106,7 @@ class MyPage {
         });
 
         $("#category-button").on("click", () => {
+            $("#multi-button").hide();
             $("#asset-button").hide();
             $("#asset-form").hide();
             $("#location-button").hide();
@@ -82,6 +123,7 @@ class MyPage {
             $("#category-button").show();
             $("#category-form").hide();
             $("#category-result-container").hide();
+            $("#multi-button").show();
         });
 
         $("#asset-back-button").on("click", () => {
@@ -90,6 +132,7 @@ class MyPage {
             $("#location-button").show();
             $("#result-container").hide();
             $("#category-button").show();
+            $("#multi-button").show();
         });
 
         $("#location-back-button").on("click", () => {
@@ -99,6 +142,7 @@ class MyPage {
             $("#result-container").hide();
             $("#location-result-container").hide();
             $("#category-button").show();
+            $("#multi-button").show();
         });
 
         $("#location-button").on("click", () => {
@@ -108,8 +152,82 @@ class MyPage {
             $("#location-button").hide();
             $("#result-container").hide();
             $("#category-button").hide();
+            $("#multi-button").hide();
         });
+        $("#get-asset-multi-filters").on("click", () => {
+            $("#multi-result-container").show();
+            let multicategory = $("#multi-category").val();
+            let multilocation = $("#multi-location").val();
+            let multidepartment = $("#multi-department").val();
+            this.multicategory = multicategory;
+            this.multilocation = multilocation;
+            this.multidepartment = multidepartment;
+            frappe.call({
+                method: "masar_assets.api.multi_filters_asset",
+                args: { 
+                    multicategory: multicategory , 
+                    multilocation : multilocation ,
+                    multidepartment : multidepartment
+                 },
+                callback: (response) => {
+                    let resultContainer = $("#multi-result-container");
+                    resultContainer.empty();
+                    if (response.message && response.message.length > 0) {
+                        let message = `
+                            <b>Result:</b>
+                            <br><br>
+                        <p>Number of assets: <strong>${response.message.length}</strong></p>
+                            <br>
+                            <table class='datatable'>
 
+                                <thead>
+                                    <tr>
+                                        <th style='width:200px'>Asset ID</th>
+                                        <th style='width:200px'>Asset Name</th>
+                                        <th style='width:200px'>Item Code</th>
+                                        <th style='width:200px'>Item Name</th>
+                                        <th style='width:200px'>Location</th>
+                                        <th style='width:200px'>Asset Category</th>
+                                        <th style='width:200px'>Department</th>
+                                        <th style='width:200px'>Custodian</th>
+                                        <th style='width:200px'>Asset Image</th>
+                                        <th style='width:200px'>QR Code</th>
+                                        <th style='width:200px'>Asset Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>`;
+    
+                        $.each(response.message, (index, item) => {
+                            message += `
+                                <tr>
+                                    <td>${item.name || ''}</td>
+                                    <td>${item.asset_name || ''}</td>
+                                    <td>${item.item_code || ''}</td>
+                                    <td>${item.item_name || ''}</td>
+                                    <td>${item.location || ''}</td>
+                                    <td>${item.asset_category || ''}</td>
+                                    <td>${item.department || ''}</td>
+                                    <td>${item.custodian || ''}</td>
+                                    <td><img src="${item.image || ''}" style="max-width: 100px; max-height: 100px;"></td>
+                                    <td><img src="${item.custom_qr_code_text || ''}" style="max-width: 100px; max-height: 100px;"></td>
+                                    <td>${item.status || ''}</td>
+                                </tr>`;
+                        });
+    
+                        message += `</tbody></table>`;
+                        resultContainer.html(message);
+                        $('.datatable').DataTable();
+    
+                        // Display QR code if available
+                        if (response.custom_qr_code_text) {
+                            $("#qr_code_image").html(`<img src="${response.custom_qr_code_text || ''}">`);
+                        }
+                    } else {
+                        resultContainer.html("No data found for the selected category.");
+                    }
+                }
+            });
+        });
         $("#get-new-asset-by-category").on("click", () => {
             $("#category-result-container").show();
             let category = $("#category").val();
@@ -142,6 +260,7 @@ class MyPage {
 
         this.populateLocationDropdown();
         this.GetAssetCategoryOptions();
+        this.ForMulti();
     }
 
     getAssetInCategory() {
@@ -156,7 +275,9 @@ class MyPage {
                 if (response.message && response.message.length > 0) {
                     let message = `
                         <b>Result:</b>
-                        <br>
+                        <br><br>
+                        <p>Number of assets: <strong>${response.message.length}</strong></p>
+                            <br>
                         <table class='datatable'>
                             <thead>
                                 <tr>
@@ -219,7 +340,9 @@ class MyPage {
                 if (response.message && response.message.length > 0) {
                     let message = `
                         <b>Result:</b>
-                        <br>
+                        <br><br>
+                        <p>Number of assets: <strong>${response.message.length}</strong></p>
+                            <br>
                         <table class='datatable'>
                             <thead>
                                 <tr>
@@ -297,6 +420,47 @@ class MyPage {
                 $("#location").html(options);
                 if (this.selectedLocation) {
                     $("#location").val(this.selectedLocation);
+                }
+            }
+        });
+    }
+    ForMulti(){
+        frappe.call({
+            method: "masar_assets.api.get_location",
+            callback: (response) => {
+                let options = '<option value="">Select Location</option>';
+                response.message.forEach((item) => {
+                    options += `<option value="${item.name}">${item.name}</option>`;
+                });
+                $("#multi-location").html(options);
+                if (this.selectedLocation) {
+                    $("#multi-location").val(this.selectedLocation);
+                }
+            }
+        });
+        frappe.call({
+            method: "masar_assets.api.get_category",
+            callback: (response) => {
+                let options = '<option value="">Select Category</option>';
+                response.message.forEach((category) => {
+                    options += `<option value="${category.name}">${category.name}</option>`;
+                });
+                $("#multi-category").html(options);
+                if (this.selectedCategory) {
+                    $("#multi-category").val(this.selectedCategory);
+                }
+            }
+        });
+        frappe.call({
+            method: "masar_assets.api.get_department",
+            callback: (response) => {
+                let options = '<option value="">Select Department</option>';
+                response.message.forEach((department) => {
+                    options += `<option value="${department.name}">${department.name}</option>`;
+                });
+                $("#multi-department").html(options);
+                if (this.selectedDepartmenty) {
+                    $("#multi-department").val(this.selectedDepartment);
                 }
             }
         });

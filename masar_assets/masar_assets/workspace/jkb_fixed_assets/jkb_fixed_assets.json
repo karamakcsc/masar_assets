@@ -5,7 +5,7 @@
    "label": "Asset Value Analytics"
   }
  ],
- "content": "[{\"id\":\"g6VvkS37HN\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">JKB Fixed Assets</span>\",\"col\":12}},{\"id\":\"vbZegN1_fd\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Asset Value Analytics\",\"col\":12}},{\"id\":\"KEWJqGfR19\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Your Shortcuts</span>\",\"col\":12}},{\"id\":\"oFKURnxsYv\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset\",\"col\":3}},{\"id\":\"PCwbQMLk5h\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset Category\",\"col\":3}},{\"id\":\"nTdGY2rTzd\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Department\",\"col\":3}},{\"id\":\"KXvTd42pYC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"lzPkewOZe2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fixed Asset Register\",\"col\":3}},{\"id\":\"Pq0uuYSA12\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"GLd-wwB5Bu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"W_gTKgNB3H\",\"type\":\"card\",\"data\":{\"card_name\":\"Assets\",\"col\":4}},{\"id\":\"i19ZtPMZzb\",\"type\":\"card\",\"data\":{\"card_name\":\"Buying\",\"col\":4}},{\"id\":\"CL0QEZK4CY\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"g6VvkS37HN\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">JKB Fixed Assets</span>\",\"col\":12}},{\"id\":\"vbZegN1_fd\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Asset Value Analytics\",\"col\":12}},{\"id\":\"KEWJqGfR19\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Your Shortcuts</span>\",\"col\":12}},{\"id\":\"oFKURnxsYv\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset\",\"col\":3}},{\"id\":\"PCwbQMLk5h\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset Category\",\"col\":3}},{\"id\":\"nTdGY2rTzd\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Department\",\"col\":3}},{\"id\":\"KXvTd42pYC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"lzPkewOZe2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fixed Asset Register\",\"col\":3}},{\"id\":\"CVEVdknEFB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset QR Print\",\"col\":3}},{\"id\":\"Pq0uuYSA12\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"GLd-wwB5Bu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"W_gTKgNB3H\",\"type\":\"card\",\"data\":{\"card_name\":\"Assets\",\"col\":4}},{\"id\":\"i19ZtPMZzb\",\"type\":\"card\",\"data\":{\"card_name\":\"Buying\",\"col\":4}},{\"id\":\"CL0QEZK4CY\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
  "creation": "2024-06-11 14:32:45.138512",
  "custom_blocks": [],
  "docstatus": 0,
@@ -18,65 +18,6 @@
  "is_hidden": 0,
  "label": "JKB Fixed Assets",
  "links": [
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Assets",
-   "link_count": 5,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Asset",
-   "link_count": 0,
-   "link_to": "Asset",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Location",
-   "link_count": 0,
-   "link_to": "Location",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Asset Category",
-   "link_count": 0,
-   "link_to": "Asset Category",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Asset Movement",
-   "link_count": 0,
-   "link_to": "Asset Movement",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Department",
-   "link_count": 0,
-   "link_to": "Department",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
   {
    "hidden": 0,
    "is_query_report": 0,
@@ -148,9 +89,9 @@
   {
    "hidden": 0,
    "is_query_report": 1,
-   "label": "Asset Activity",
+   "label": "Asset Activities",
    "link_count": 0,
-   "link_to": "Asset Activity",
+   "link_to": "Asset Activities",
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
@@ -164,9 +105,78 @@
    "link_type": "Page",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assets",
+   "link_count": 6,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset",
+   "link_count": 0,
+   "link_to": "Asset",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Location",
+   "link_count": 0,
+   "link_to": "Location",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Category",
+   "link_count": 0,
+   "link_to": "Asset Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Movement",
+   "link_count": 0,
+   "link_to": "Asset Movement",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Department",
+   "link_count": 0,
+   "link_to": "Department",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset QR Print",
+   "link_count": 0,
+   "link_to": "Asset QR Print",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-06-11 16:39:54.003612",
+ "modified": "2024-07-16 17:08:01.203029",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "JKB Fixed Assets",
@@ -188,6 +198,14 @@
  ],
  "sequence_id": 22.0,
  "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Asset QR Print",
+   "link_to": "Asset QR Print",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
   {
    "color": "Grey",
    "doc_view": "List",
