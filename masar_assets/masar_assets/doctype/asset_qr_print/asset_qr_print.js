@@ -1,24 +1,6 @@
 // Copyright (c) 2024, KCSC and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("Asset QR Print", {
-// 	validate(frm) {
-//         frappe.call({
-//             doc:frm.doc,
-//             method:'asset_filters',
-//             callback: function(r) {
-//                 var insert_row = cur_frm.add_child("filtered_assets_table");
-//                 insert_row.asset_code= r.message;
-//                 // insert_row.asset_name=
-//                 // insert_row.custom_qr_code_text=
-//                 cur_frm.refresh_fields("filtered_assets_table");
-//             }
-//         })
-       
-
-// 	},
-// });
-
 frappe.ui.form.on('Asset QR Print', {
     refresh(frm) {
         if (frm.doc.docstatus != 1) {
@@ -36,3 +18,29 @@ frappe.ui.form.on('Asset QR Print', {
         }
     }
   });
+
+  frappe.ui.form.on("Asset QR Print", {
+	setup: function(frm) {
+		frm.set_query("location", function() {
+			return {
+				filters: {
+					"is_group" : 0
+                }
+			}
+		});
+        frm.set_query("asset_name", function() {
+			return {
+				filters: {
+					"docstatus" : 1
+                }
+			}
+		});
+        frm.set_query("item_code", function() {
+			return {
+				filters: {
+					"is_fixed_asset" : 1
+                }
+			}
+		});
+	}
+});
