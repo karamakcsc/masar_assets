@@ -16,6 +16,7 @@ class UserManagement(Document):
 	@frappe.whitelist(allow_guest=True)
 	def update_user_data(self):
 		user_doc = frappe.get_doc('User' , self.link_user)
+		user_doc.roles = []
 		if self.has_role_profile == 1:
 			if self.role_profile:
 				user_doc.role_profile_name = self.role_profile
