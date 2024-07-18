@@ -125,7 +125,7 @@ app_license = "mit"
 doc_events = {
     "Asset": {
         "before_submit": "masar_assets.custom.asset.asset.before_submit"  
-    }
+    }, 
 }
 doctype_js = {
     "Asset" : "custom/asset/asset.js", 
@@ -255,3 +255,6 @@ fixtures = [
         ]
     ]}
 ]
+override_doctype_class = {
+    "User" : "masar_assets.override._user.User", 
+}
