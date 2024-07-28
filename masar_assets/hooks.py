@@ -273,6 +273,6 @@ override_doctype_class = {
     "Email Queue": "masar_assets.override._email_queue.EmailQueueCustom"
 }
 
-from frappe.email.doctype.email_queue.email_queue import EmailQueue 
+from frappe.email.doctype.email_queue import email_queue
 from masar_assets.override._email_queue import EmailQueueCustom  
-EmailQueue.new = EmailQueueCustom.new
+setattr(email_queue, 'EmailQueue', EmailQueueCustom)
