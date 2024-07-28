@@ -7,7 +7,7 @@ import traceback
 from contextlib import suppress
 from email.parser import Parser
 from email.policy import SMTP
-
+import re
 import frappe
 from frappe import _, safe_encode, task
 from frappe.core.utils import html2text
@@ -34,8 +34,8 @@ from frappe.utils import (
 from frappe.utils.deprecations import deprecated
 from frappe.utils.verified_command import get_signed_params
 
-
-class EmailQueue(Document):
+from frappe.email.doctype.email_queue.email_queue import EmailQueue as OriginalEmailQueue
+class EmailQueueCustom(OriginalEmailQueue):
 	# begin: auto-generated types
 	# This code is auto-generated. Do not modify anything in this block.
 
@@ -87,25 +87,21 @@ class EmailQueue(Document):
 		return duplicate
 
 	@classmethod
-	def new(cls, doc_data, ignore_permissions=False) -> "EmailQueue":
+	def new(cls, doc_data, ignore_permissions=False) -> "EmailQueueCustom":
 		data = doc_data.copy()
 		if not data.get("recipients"):
 			return
-        ############### Start Override 
-		import re
+		message_content = str(data.get("message", ""))
+		masked_message = re.sub(r'\b\d{6}\b', '######', message_content)
 		recipients = data.pop("recipients")
 		doc = frappe.new_doc(cls.DOCTYPE)
 		doc.update(data)
-		doc.set_recipients(recipients)
-		message_content = str(data.get("message", ""))
-		masked_message = re.sub(r'\b\d{6}\b', '######', message_content)
-		doc.custom_masked_message = masked_message
+		doc.custom_masked_message =  str(masked_message)
 		doc.set_recipients(recipients)
 		doc.insert(ignore_permissions=ignore_permissions)
 		return doc
-        ################ End Overrride 
 	@classmethod
-	def find(cls, name) -> "EmailQueue":
+	def find(cls, name) -> "EmailQueueCustom":
 		return frappe.get_doc(cls.DOCTYPE, name)
 
 	@classmethod
@@ -162,7 +158,7 @@ class EmailQueue(Document):
 		if not self.can_send_now():
 			return
 
-		with SendMailContext(self, smtp_server_instance) as ctx:
+		with SendMailContextCustom(self, smtp_server_instance) as ctx:
 			ctx.fetch_smtp_server()
 			message = None
 			for recipient in self.recipients:
@@ -226,17 +222,17 @@ def send_mail(email_queue_name, smtp_server_instance: SMTPServer = None):
 
 	This provides a way to make sending mail as a background job.
 	"""
-	record = EmailQueue.find(email_queue_name)
+	record = EmailQueueCustom.find(email_queue_name)
 	record.send(smtp_server_instance=smtp_server_instance)
 
 
-class SendMailContext:
+class SendMailContextCustom:
 	def __init__(
 		self,
 		queue_doc: Document,
 		smtp_server_instance: SMTPServer = None,
 	):
-		self.queue_doc: EmailQueue = queue_doc
+		self.queue_doc: EmailQueueCustom = queue_doc
 		self.smtp_server: SMTPServer = smtp_server_instance
 		self.sent_to_atleast_one_recipient = any(
 			rec.recipient for rec in self.queue_doc.recipients if rec.is_mail_sent()
@@ -441,7 +437,7 @@ def bulk_retry(queues):
 
 @frappe.whitelist()
 def send_now(name):
-	record = EmailQueue.find(name)
+	record = EmailQueueCustom.find(name)
 	if record:
 		record.check_permission()
 		record.send()
@@ -464,7 +460,7 @@ def get_email_retry_limit():
 	return cint(frappe.db.get_system_setting("email_retry_limit")) or 3
 
 
-class QueueBuilder:
+class QueueBuilderCustom:
 	"""Builds Email Queue from the given data"""
 
 	def __init__(
@@ -712,7 +708,7 @@ class QueueBuilder:
 			mail.set_in_reply_to(self.in_reply_to)
 		return mail
 
-	def process(self, send_now=False) -> EmailQueue | None:
+	def process(self, send_now=False) -> EmailQueueCustom | None:
 		"""Build and return the email queues those are created.
 
 		Sends email incase if it is requested to send now.
@@ -728,7 +724,7 @@ class QueueBuilder:
 
 		if not queue_separately:
 			recipients = list(set(final_recipients + self.final_cc() + self.bcc))
-			q = EmailQueue.new({**queue_data, **{"recipients": recipients}}, ignore_permissions=True)
+			q = EmailQueueCustom.new({**queue_data, **{"recipients": recipients}}, ignore_permissions=True)
 			send_now and q.send()
 			return q
 		else:
@@ -753,7 +749,7 @@ class QueueBuilder:
 		smtp_server_instance = None
 		for r in final_recipients:
 			recipients = list(set([r, *self.final_cc(), *self.bcc]))
-			q = EmailQueue.new({**queue_data, **{"recipients": recipients}}, ignore_permissions=True)
+			q = EmailQueueCustom.new({**queue_data, **{"recipients": recipients}}, ignore_permissions=True)
 			if not smtp_server_instance:
 				email_account = q.get_email_account(raise_error=True)
 				smtp_server_instance = email_account.get_smtp_server()

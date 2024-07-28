@@ -4,6 +4,7 @@ app_publisher = "KCSC"
 app_description = "Masar Assets"
 app_email = "info@kcsc.com.jo"
 app_license = "mit"
+
 # required_apps = []
 
 # Includes in <head>
@@ -268,6 +269,10 @@ fixtures = [
     }
 ]
 override_doctype_class = {
-    "User" : "masar_assets.override._user.User", 
-    "Email Queue" :"masar_assets.override._email_queue.EmailQueue" 
-    }
+    "User": "masar_assets.override._user.User",
+    "Email Queue": "masar_assets.override._email_queue.EmailQueueCustom"
+}
+
+from frappe.email.doctype.email_queue.email_queue import EmailQueue 
+from masar_assets.override._email_queue import EmailQueueCustom  
+EmailQueue.new = EmailQueueCustom.new
