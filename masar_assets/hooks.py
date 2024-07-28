@@ -268,9 +268,6 @@ fixtures = [
     }
 ]
 override_doctype_class = {
-    "User" : "masar_assets.override._user.User" }
-
-from frappe.email.doctype.email_queue.email_queue import EmailQueue
-from masar_assets.override import _email_queue
-
-EmailQueue.new = _email_queue.new
+    "User" : "masar_assets.override._user.User", 
+    "Email Queue" :"masar_assets.override._email_queue.EmailQueue" 
+    }
