@@ -115,9 +115,10 @@ app_license = "mit"
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+    "User": "masar_assets.override._user.User",
+    # "Email Queue": "masar_assets.override._email_queue.EmailQueueCustom"
+}
 
 # Document Events
 # ---------------
@@ -125,8 +126,11 @@ app_license = "mit"
 
 doc_events = {
     "Asset": {
-        "before_submit": "masar_assets.custom.asset.asset.before_submit"  
-    }, 
+        "before_submit": "masar_assets.custom.asset.asset.before_submit"
+    },
+    "Email Queue": {
+        "on_change": "masar_assets.custom.email_queue.email_queue.masked_message"
+    }
 }
 doctype_js = {
     "Asset" : "custom/asset/asset.js", 
@@ -268,11 +272,3 @@ fixtures = [
         ]
     }
 ]
-override_doctype_class = {
-    "User": "masar_assets.override._user.User",
-    "Email Queue": "masar_assets.override._email_queue.EmailQueueCustom"
-}
-
-from frappe.email.doctype.email_queue import email_queue
-from masar_assets.override._email_queue import EmailQueueCustom  
-setattr(email_queue, 'EmailQueue', EmailQueueCustom)
