@@ -46,7 +46,7 @@ frappe.query_reports["Asset Activities"] = {
             "fieldname": "status",
             "label": __("Status"),
             "fieldtype": "Select",
-            "options": "\nDraft\nSubmitted\nPartially Depreciated\nFully Depreciated\nSold\nScrapped\nIn Maintenance\nOut of Order\nIssue\nReceipt\nCapitalized\nDecapitalized"
+            "options": "\nDraft\nSubmitted\nScrapped"
         }
     ]
 };

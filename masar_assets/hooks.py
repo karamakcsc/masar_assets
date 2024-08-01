@@ -11,7 +11,7 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/masar_assets/css/masar_assets.css"
+# app_include_css = "/assets/masar_assets/js/masar_assets.css"
 # app_include_js = "/assets/masar_assets/js/masar_assets.js"
 
 # include js, css files in header of web template
@@ -135,7 +135,14 @@ doc_events = {
 doctype_js = {
     "Asset" : "custom/asset/asset.js", 
     "User" : "custom/user/user.js",
-    "Role" : "custom/role/role.js"
+    "Role" : "custom/role/role.js",
+    "Location" : "custom/location/location.js",
+    "Asset Category" : "custom/asset_category/asset_category.js",
+    "Item" : "custom/item/item.js",
+    "Asset Movement" : "custom/asset_movement/asset_movement.js",
+    "Supplier" : "custom/supplier/supplier.js",
+    "Supplier Group" : "custom/supplier_group/supplier_group.js",
+    "Department" : "custom/department/department.js"
 }
 
 # Scheduled Tasks

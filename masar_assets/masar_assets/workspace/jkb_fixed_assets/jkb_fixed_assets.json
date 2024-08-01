@@ -15,7 +15,7 @@
  "icon": "color-monthly-rank",
  "idx": 0,
  "indicator_color": "green",
- "is_hidden": 0,
+ "is_hidden": 1,
  "label": "JKB Fixed Assets",
  "links": [
   {
@@ -176,7 +176,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-07-16 17:08:01.203029",
+ "modified": "2024-08-01 11:04:52.800483",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "JKB Fixed Assets",
