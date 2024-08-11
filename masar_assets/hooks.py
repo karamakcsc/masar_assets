@@ -142,7 +142,8 @@ doctype_js = {
     "Asset Movement" : "custom/asset_movement/asset_movement.js",
     "Supplier" : "custom/supplier/supplier.js",
     "Supplier Group" : "custom/supplier_group/supplier_group.js",
-    "Department" : "custom/department/department.js"
+    "Department" : "custom/department/department.js", 
+    "Role Profile" : "custom/role_profile/role_profile.js",
 }
 
 # Scheduled Tasks

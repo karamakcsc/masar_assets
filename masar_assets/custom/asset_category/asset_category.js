@@ -17,8 +17,11 @@ frappe.ui.form.on('Asset Category', {
 });
 
 function set_doctype_read_only(frm) {
+    frm.toggle_display("finance_book_detail", false);
+    frm.toggle_display("depreciation_options", false);
     if (frappe.user.has_role('JKB Supply Chain-Checker')) {
         frm.set_read_only(true);
+
         // frappe.show_alert('Form set to read-only mode for JKB Supply Chain-Checker', 5);
     }
 }

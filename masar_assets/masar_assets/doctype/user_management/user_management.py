@@ -15,6 +15,7 @@ class UserManagement(Document):
 	
 	@frappe.whitelist(allow_guest=True)
 	def update_user_data(self):
+		allowed_module = ['Masar Assets']
 		user_doc = frappe.get_doc('User' , self.link_user)
 		user_doc.roles = []
 		if self.has_role_profile == 1:
@@ -25,11 +26,20 @@ class UserManagement(Document):
 			if user_role and user_role[0]:
 				for role in user_role:
 					user_doc.append('roles' , {
-						"doctype" : "Has Role" , 
+						"doctype" : "Has Role" ,
 						"role" : role.role
 					})
-		user_doc.enabled = self.is_enable 
+		user_doc.block_modules = []
+		all_modules = frappe.get_all('Module Def', fields=['module_name'])
+		for module in all_modules:
+			if module.module_name not in allowed_module:
+				user_doc.append('block_modules' , {
+					"doctype" : "Block Module" , 
+					"module" : module.module_name,
+					"is_blocked" : 0 
+				})
 		user_doc.save(ignore_permissions=True)
+		frappe.db.set_value('User' , self.link_user, 'enabled' ,self.is_enable  )
 		frappe.db.commit()
 
 	@frappe.whitelist(allow_guest=True)
@@ -73,6 +83,8 @@ class UserManagement(Document):
 				})
 		user_doc.enabled = self.is_enable 
 		user_doc.save(ignore_permissions=True)
+		frappe.db.commit()
+		frappe.db.set_value('User' , user_doc.name, 'enabled' , self.is_enable  )
 		frappe.db.commit()
 
 

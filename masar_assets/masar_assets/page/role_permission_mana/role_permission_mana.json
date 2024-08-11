@@ -1,0 +1,25 @@
+{
+ "content": null,
+ "creation": "2024-08-11 09:58:10.146646",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2024-08-11 09:58:10.146646",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "role-permission-mana",
+ "owner": "Administrator",
+ "page_name": "role-permission-mana",
+ "roles": [
+  {
+   "role": "JKB Admin"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0
+}
