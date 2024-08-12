@@ -1,0 +1,65 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"ZbfnQhxpVX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">JKB Admin</span>\",\"col\":12}},{\"id\":\"P0Hm61qkAw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Department\",\"col\":3}},{\"id\":\"RMrcipXX2y\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Role\",\"col\":3}},{\"id\":\"zq5GONqsDy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Role Profile\",\"col\":3}},{\"id\":\"nlB_tjw-vJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Role Permission Manager\",\"col\":3}}]",
+ "creation": "2024-08-08 16:32:50.210827",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "color-monthly-rank",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "JKB Admin",
+ "links": [],
+ "modified": "2024-08-12 10:10:38.938107",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "JKB Admin",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "JKB Admin"
+  }
+ ],
+ "sequence_id": 27.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Role Permission Manager",
+   "link_to": "role-permission-mana",
+   "type": "Page"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Role Profile",
+   "link_to": "Role Profile",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Department",
+   "link_to": "Department",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Role",
+   "link_to": "Role",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "JKB Admin"
+}

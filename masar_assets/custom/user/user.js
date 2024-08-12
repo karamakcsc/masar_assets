@@ -38,21 +38,23 @@ frappe.ui.form.on("User", {
                 "home_settings"
             ];
             fields_to_hide.forEach(field => frm.toggle_display(field, false));
+            const roles_to_hide = ["System Manager", "Workspace Manager" , "Script Manager"];
+            frm.roles_editor.wrapper.find(`[data-unit="${roles_to_hide.join('"], [data-unit="')}"]`).hide();
         }
 
 
-        const roles_to_hide = ["System Manager", "Workspace Manager" , "Script Manager"];
-        frm.roles_editor.wrapper.find(`[data-unit="${roles_to_hide.join('"], [data-unit="')}"]`).hide();
+
 
         frm.refresh_fields();
     },
 
     refresh: function(frm) {
-        const roles_to_hide = ["System Manager", "Workspace Manager" , "Script Manager"];
-        frm.roles_editor.wrapper.find(`[data-unit="${roles_to_hide.join('"], [data-unit="')}"]`).hide();
-
+        
         frm.refresh_fields();
         if (!frappe.user.has_role('System Manager') || !frappe.user.has_role('Workspace Manager')) {
+            const roles_to_hide = ["System Manager", "Workspace Manager" , "Script Manager"];
+        frm.roles_editor.wrapper.find(`[data-unit="${roles_to_hide.join('"], [data-unit="')}"]`).hide();
+
             const fields_to_hide = [
                 "sb_allow_modules", 
                 "module_profile", 

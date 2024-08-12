@@ -60,7 +60,7 @@ frappe.PermissionEngine = class PermissionEngine {
 			get_query: () => {
 				return {
 					filters: {
-						name: ['not in', ['System Manager', 'Script Manager', 'Workspace Manager','Administrator' , 'Guest' , 'All']]
+						name: ['not in', ['System Manager', 'Script Manager', 'Workspace Manager','Administrator' , 'Guest' , 'All' , 'JKB Admin']]
 					}
 				}
 			},

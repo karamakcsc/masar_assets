@@ -1,26 +1,16 @@
-// frappe.listview_settings['Role'] = {
-//     onload : function(listview) {
-//        if(!frappe.user.has_role('System Manager')){
-//         frappe.route_options = {
-//             "disabled": "0"
-//           };
-//         listview.refresh();
-//         }
-//     },
-//      refresh : function(listview) {
-//          if(!frappe.user.has_role('System Manager')){
-//         frappe.route_options = {
-//             "disabled": "0"
-//           };
-//         listview.refresh();
-//          }
-//     },
-//      setup : function(listview) {
-//          if(!frappe.user.has_role('System Manager')){
-//         frappe.route_options = {
-//             "disabled": "0"
-//           };
-//         listview.refresh();
-//     }
-//      }
-// };
+frappe.ui.form.on('Role', {
+    onload: function(frm) {
+        hide_fields(frm);
+    },
+    refresh: function(frm) {
+        hide_fields(frm);
+    },
+    setup: function(frm) {
+        hide_fields(frm);
+    }
+});
+
+
+function hide_fields(frm){
+    frm.toggle_display("restrict_to_domain", false);
+}

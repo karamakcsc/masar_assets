@@ -4,12 +4,15 @@
 frappe.ui.form.on('User Management', {
     refresh: function(frm) {
         set_doctype_read_only(frm);
+        set_filters(frm);
     },
     onload: function(frm){
         set_doctype_read_only(frm);
+        set_filters(frm);
     },
     setup: function(frm){
         set_doctype_read_only(frm);
+        set_filters(frm);
     }
   });
 
@@ -26,4 +29,15 @@ function set_doctype_read_only(frm) {
         frm.set_df_property('section_break_vfg7', 'read_only', 1);
         // frappe.show_alert('Form set to read-only mode for JKB User Management-Checker', 5);
     }
+}
+
+function set_filters(frm) {
+    frm.fields_dict['user_role_table'].grid.get_field('role').get_query = function(doc, cdt, cdn) {
+        return {
+            filters: {
+                "disabled": 0,
+                name: ['not in', ['System Manager', 'Script Manager', 'Workspace Manager','Administrator' , 'Guest' , 'All']]
+            }
+        };
+    };
 }

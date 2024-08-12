@@ -35,7 +35,7 @@ def get_roles_and_doctypes():
 		fields=["name"],
 	)
 
-	restricted_roles = ["Administrator" , "JKB Admin"]
+	restricted_roles =   ['System Manager', 'Script Manager', 'Workspace Manager','Administrator' , 'Guest' , 'All' , 'JKB Admin']
 	if frappe.session.user != "Administrator":
 		custom_user_type_roles = frappe.get_all("User Type", filters={"is_standard": 0}, fields=["role"])
 		restricted_roles.extend(row.role for row in custom_user_type_roles)
@@ -74,7 +74,6 @@ def get_permissions(doctype: str | None = None, role: str | None = None):
 		if frappe.session.user != "Administrator":
 			custom_roles = frappe.get_all("Role", filters={"is_custom": 1 , "disabled": 0}, pluck="name")
 			filters["role"] = ["not in", custom_roles]
-
 		out = frappe.get_all("Custom DocPerm", fields="*", filters=filters, order_by="permlevel")
 		if not out:
 			out = frappe.get_all("DocPerm", fields="*", filters=filters, order_by="permlevel")
