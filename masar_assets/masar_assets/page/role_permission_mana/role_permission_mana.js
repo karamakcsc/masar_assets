@@ -37,6 +37,15 @@ frappe.PermissionEngine = class PermissionEngine {
 			})
 			.then((res) => {
 				this.options = res.message;
+				// this.setup_page();
+			});
+		frappe
+			.call({
+				method: "masar_assets.masar_assets.page.role_permission_mana._permission_manager.documents_query",
+			})
+			.then((res) => {
+				console.log((res.message));
+				this.options_doc = res.message;
 				this.setup_page();
 			});
 	}
@@ -45,9 +54,8 @@ frappe.PermissionEngine = class PermissionEngine {
 		this.doctype_select = this.wrapper.page.add_field({
 			fieldname: "doctype_select",
 			label: __("Document Type"),
-			fieldtype: "Link",
-			options: "Role Permissions Doctype",
-			read_only: 1,
+			fieldtype: "Select",
+			options: this.options_doc,
 			change: function () {
 				frappe.set_route("role-permission-mana", this.get_value());
 			},

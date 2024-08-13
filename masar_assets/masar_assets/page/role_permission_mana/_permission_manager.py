@@ -177,3 +177,9 @@ def get_standard_permissions(doctype):
 		# also used to setup permissions via patch
 		path = get_file_path(meta.module, "DocType", doctype)
 		return read_doc_from_file(path).get("permissions")
+
+@frappe.whitelist()
+def documents_query():
+    query = frappe.db.sql(""" SELECT name FROM `tabRole Permissions Doctype` """, as_dict = True)
+    doctypes = "\n" + "\n".join([row['name'] for row in query])
+    return doctypes

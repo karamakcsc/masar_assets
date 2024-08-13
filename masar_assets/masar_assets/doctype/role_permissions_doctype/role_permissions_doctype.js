@@ -14,7 +14,8 @@ frappe.ui.form.on('Role Permissions Doctype', {
 });
 
 function set_doctype_read_only(frm) {
-    if (!frappe.user.has_role('System Manager')) {
-        frm.set_read_only(true);
+    frm.set_df_property("link_doctype", "read_only", 1);
+    if (frappe.user.has_role("Administrator")) {
+        frm.set_df_property("link_doctype", "read_only", 0);
     }
 }
