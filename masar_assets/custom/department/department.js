@@ -1,23 +1,15 @@
 frappe.ui.form.on('Department', {
     onload: function(frm) {
         set_doctype_read_only(frm);
-        set_filters_list(frm);
+        // frm.toggle_display("company", false);
     },
     refresh: function(frm) {
         set_doctype_read_only(frm);
-        set_filters_list(frm);
+        // frm.toggle_display("company", false);
     },
     setup: function(frm) {
         set_doctype_read_only(frm);
-        set_filters_list(frm);
-    },
-    before_load: function(frm) {
-        set_doctype_read_only(frm);
-        set_filters_list(frm);
-    },
-    onload_post_render: function(frm) {
-        set_doctype_read_only(frm);
-        set_filters_list(frm);
+        // frm.toggle_display("company", false);
     }
 });
 
@@ -28,7 +20,3 @@ function set_doctype_read_only(frm) {
     }
 }
 
-
-function set_filters_list(frm) {
-    frm.set_df_property('company', 'read_only', 1);
-}
