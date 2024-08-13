@@ -47,6 +47,7 @@ frappe.PermissionEngine = class PermissionEngine {
 			label: __("Document Type"),
 			fieldtype: "Link",
 			options: "Role Permissions Doctype",
+			read_only: 1,
 			change: function () {
 				frappe.set_route("role-permission-mana", this.get_value());
 			},
