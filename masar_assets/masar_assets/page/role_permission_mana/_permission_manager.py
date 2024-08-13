@@ -72,8 +72,10 @@ def get_permissions(doctype: str | None = None, role: str | None = None):
 	else:
 		filters = {"parent": doctype}
 		if frappe.session.user != "Administrator":
-			custom_roles = frappe.get_all("Role", filters={"is_custom": 1 , "disabled": 0}, pluck="name")
-			filters["role"] = ["not in", custom_roles]
+			roles = frappe.db.sql("""SELECT name FROM tabRole tr WHERE disabled = 0 AND name not in ('System Manager', 'Script Manager', 'Workspace Manager','Administrator' , 'Guest' , 'All' , 'JKB Admin')""" , as_dict=1 )
+			custom_roles = [ role['name'] for role in roles]
+			# custom_roles = frappe.get_all("Role", filters={ "disabled": 0}, pluck="name")
+			filters["role"] = ["in", custom_roles]
 		out = frappe.get_all("Custom DocPerm", fields="*", filters=filters, order_by="permlevel")
 		if not out:
 			out = frappe.get_all("DocPerm", fields="*", filters=filters, order_by="permlevel")

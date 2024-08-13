@@ -2,14 +2,17 @@ frappe.ui.form.on('Asset', {
     refresh: function(frm) {
         frm.clear_custom_buttons();
         hide_fields(frm);
+        set_doctype_read_only(frm);
     },
     onload: function(frm){
         frm.clear_custom_buttons(); 
         hide_fields(frm);
+        set_doctype_read_only(frm);
     },
     setup: function(frm){
         frm.clear_custom_buttons(); 
         hide_fields(frm);
+        set_doctype_read_only(frm);
     }
   });
 function hide_fields(frm){
@@ -23,24 +26,6 @@ function hide_fields(frm){
     frm.toggle_display("accounting_dimensions_section", false);
     // cur_frm.dashboard.hide();//
 }
-
-frappe.ui.form.on('Asset', {
-    onload: function(frm) {
-        set_doctype_read_only(frm);
-    },
-    refresh: function(frm) {
-        set_doctype_read_only(frm);
-    },
-    setup: function(frm) {
-        set_doctype_read_only(frm);
-    },
-    before_load: function(frm) {
-        set_doctype_read_only(frm);
-    },
-    onload_post_render: function(frm) {
-        set_doctype_read_only(frm);
-    }
-});
 
 function set_doctype_read_only(frm) {
     if (frappe.user.has_role('JKB Supply Chain-Checker')) {

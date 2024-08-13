@@ -19,7 +19,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-11 12:21:09.704763",
+ "modified": "2024-08-13 12:47:25.201376",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "Role Permissions Doctype",
@@ -34,18 +34,10 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Administrator",
+   "select": 1,
    "share": 1,
    "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "report": 1,
-   "role": "JKB Admin",
-   "select": 1,
-   "share": 1
   }
  ],
  "sort_field": "modified",

@@ -60,8 +60,8 @@ class UserManagement(Document):
 			if role_profile_roles and role_profile_roles[0]:
 				for role in role_profile_roles:
 					profile_role = role.role
-					if profile_role in core_role:
-						allowed_module.append('Core')
+					# if profile_role in core_role:
+					# 	allowed_module.append('Core')
 		elif self.has_role_profile == 0 : 
 			user_role = frappe.db.sql("SELECT role FROM `tabUser Management Details` WHERE Parent = %s" , (self.name) , as_dict = True)
 			for role in user_role:
@@ -69,8 +69,8 @@ class UserManagement(Document):
 					"doctype" : "Has Role" , 
 					"role" : role.role
 				})
-			if role in core_role:
-				allowed_module.append('Core')
+			# if role in core_role:
+			# 	allowed_module.append('Core')
 		
 		user_doc.block_modules = []
 		all_modules = frappe.get_all('Module Def', fields=['module_name'])
