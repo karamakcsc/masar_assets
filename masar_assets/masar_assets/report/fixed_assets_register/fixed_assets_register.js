@@ -31,7 +31,7 @@ frappe.query_reports["Fixed Assets Register"] = {
 			fieldtype: "Date",
 			default: frappe.datetime.nowdate(),
 			depends_on: "eval: doc.filter_based_on == 'Date Range'",
-		},
+		},//
 		{
 			fieldname: "asset_category",
 			label: __("Asset Category"),
