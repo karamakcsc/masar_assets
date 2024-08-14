@@ -24,6 +24,7 @@ function hide_fields(frm){
     frm.toggle_display("section_break_31", false);
     frm.toggle_display("booked_fixed_asset", false);
     frm.toggle_display("accounting_dimensions_section", false);
+    // frm.set_df_property('company', 'read_only', 1);
     // cur_frm.dashboard.hide();//
 }
 

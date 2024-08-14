@@ -795,11 +795,14 @@ def get_all_roles():
 			"disabled": 0,
 		},
 		or_filters={"ifnull(restrict_to_domain, '')": "", "restrict_to_domain": ("in", active_domains)},
-		order_by="name",
+		order_by="name"
 	)
 
-	return sorted([role.get("name") for role in roles])
-
+	if frappe.session.user != 'Administrator':
+		roles = sorted([role.get("name") for role in roles if role.get("name") not in ['System Manager', 'Script Manager', 'Workspace Manager','Administrator' , 'Guest' , 'All' ]])
+	else:
+		roles = sorted([role.get("name") for role in roles])
+	return roles
 
 @frappe.whitelist()
 def get_roles(arg=None):
