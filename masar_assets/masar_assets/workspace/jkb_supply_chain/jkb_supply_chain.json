@@ -156,7 +156,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-08-14 14:06:49.863243",
+ "modified": "2024-08-14 14:34:13.405856",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "JKB Supply Chain",
@@ -220,8 +220,8 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Fixed Asset Register",
-   "link_to": "Fixed Asset Register",
+   "label": "Fixed Assets Register",
+   "link_to": "Fixed Assets Register",
    "type": "Report"
   }
  ],
