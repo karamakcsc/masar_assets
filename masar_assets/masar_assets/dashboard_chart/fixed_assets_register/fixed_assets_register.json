@@ -1,0 +1,32 @@
+{
+ "chart_name": "Fixed Assets Register",
+ "chart_type": "Report",
+ "creation": "2020-08-14 11:25:34.535000",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "filters_json":"{\"company\":\"Jordan Kuwait Bank\",\"Period Based On\":\"Date Range\"}",
+ "group_by_type": "Report",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "modified": "2024-08-14 13:57:50.697179",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "Fixed Assets Register",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "Fixed Assets Register",
+ "roles": [  {
+    "role": "JKB Supply Chain-Checker"
+   },
+   {
+    "role": "JKB Supply Chain-Maker"
+   },
+   {
+    "role": "JKB Viewer"
+   }],
+ "timeseries": 0,
+ "type": "Bar",
+ "use_report_chart": 1,
+ "y_axis": []
+}

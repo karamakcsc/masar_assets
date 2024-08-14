@@ -1,8 +1,8 @@
 {
  "charts": [
   {
-   "chart_name": "Asset Value Analytics",
-   "label": "Asset Value Analytics"
+   "chart_name": "Fixed Assets Register",
+   "label": "Fixed Assets Register"
   }
  ],
  "content": "[{\"id\":\"m2KklR63tf\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">JKB Supply Chain</span>\",\"col\":12}},{\"id\":\"Te4dJBV0jb\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Asset Value Analytics\",\"col\":12}},{\"id\":\"LeDtQzimsa\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"d950sq_ecz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset\",\"col\":3}},{\"id\":\"jNsNGBJI9Q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset Category\",\"col\":3}},{\"id\":\"PKoODliMnw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Department\",\"col\":3}},{\"id\":\"3UREiOEj0i\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"Ng2wLSo2j6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fixed Asset Register\",\"col\":3}},{\"id\":\"Iss6ydY97V\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Asset QR Print\",\"col\":3}},{\"id\":\"v8FP7ivN_2\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"l16EGjB8Qw\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"vMpoD_PieE\",\"type\":\"card\",\"data\":{\"card_name\":\"Assets\",\"col\":4}},{\"id\":\"sKCidGMRmW\",\"type\":\"card\",\"data\":{\"card_name\":\"Buying\",\"col\":4}},{\"id\":\"uoz_QIK_8r\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
@@ -156,7 +156,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-08-08 14:23:17.672568",
+ "modified": "2024-08-14 14:06:49.863243",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "JKB Supply Chain",
