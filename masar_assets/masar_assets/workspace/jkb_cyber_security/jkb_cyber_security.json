@@ -1,0 +1,54 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"se4Qm51eXh\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">JKB Cyber Security</span>\",\"col\":12}},{\"id\":\"HCJQITQzV6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Email Queue\",\"col\":4}},{\"id\":\"ZU7NzT3Fxu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Activity Log\",\"col\":4}},{\"id\":\"XVbU0Jes_h\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Version\",\"col\":4}}]",
+ "creation": "2024-11-24 16:11:47.277985",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "color-monthly-rank",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "JKB Cyber Security",
+ "links": [],
+ "modified": "2024-11-24 16:17:28.942719",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "JKB Cyber Security",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 28.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Email Queue",
+   "link_to": "Email Queue",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Activity Log",
+   "link_to": "Activity Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Version",
+   "link_to": "Version",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "JKB Cyber Security"
+}

@@ -27,20 +27,24 @@ frappe.ui.form.on('Supplier', {
 });
 
 function set_doctype_read_only(frm) {
-    if (frappe.user.has_role('JKB Supply Chain-Checker')) {
-        frm.set_read_only(true);
-        // frappe.show_alert('Form set to read-only mode for JKB Supply Chain-Checker', 5);
+    if (frappe.session.user !== 'Administrator'){
+        if (frappe.user.has_role('JKB Supply Chain-Checker')) {
+            frm.set_read_only(true);
+            // frappe.show_alert('Form set to read-only mode for JKB Supply Chain-Checker', 5);
+        }
     }
 }
 
 function hide_fields(frm){
-    $('a.nav-link:contains("Dashboard")').parent('.nav-item').hide();
-    $('a.nav-link:contains("Contact & Address")').parent('.nav-item').hide();
-    $('a.nav-link:contains("Accounting")').parent('.nav-item').hide();
-    $('a.nav-link:contains("Settings")').parent('.nav-item').hide();
-    $('a.nav-link:contains("Portal Users")').parent('.nav-item').hide();
-    frm.toggle_display("tax_category", false);
-    frm.toggle_display("tax_withholding_category", false);
-    frm.toggle_display("defaults_section", false);
-    frm.toggle_display("internal_supplier_section", false);
+    if (frappe.session.user !== 'Administrator'){
+        $('a.nav-link:contains("Dashboard")').parent('.nav-item').hide();
+        $('a.nav-link:contains("Contact & Address")').parent('.nav-item').hide();
+        $('a.nav-link:contains("Accounting")').parent('.nav-item').hide();
+        $('a.nav-link:contains("Settings")').parent('.nav-item').hide();
+        $('a.nav-link:contains("Portal Users")').parent('.nav-item').hide();
+        frm.toggle_display("tax_category", false);
+        frm.toggle_display("tax_withholding_category", false);
+        frm.toggle_display("defaults_section", false);
+        frm.toggle_display("internal_supplier_section", false);
+    }
 }

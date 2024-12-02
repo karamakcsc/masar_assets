@@ -15,5 +15,7 @@ frappe.ui.form.on('Role', {
 
 
 function hide_fields(frm){
-    frm.toggle_display("restrict_to_domain", false);
+    if (frappe.session.user !== 'Administrator'){
+        frm.toggle_display("restrict_to_domain", false);
+    }
 }

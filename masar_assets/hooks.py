@@ -263,7 +263,13 @@ fixtures = [
                 "Location-custom_room_no",
                 "Location-custom_floor",
                 "Location-custom_column_break_kmhwj",
-                "Email Queue-custom_masked_message"
+                "Email Queue-custom_masked_message",
+                "Asset-custom_notes",
+                "Asset-custom_section_break_xt66h",
+                "Asset Movement-custom_section_break_19t3x",
+                "Asset Movement-custom_notes",
+                "Asset Movement Item-custom_section_break_ll3u8",
+                "Asset Movement Item-custom_notes"
             ]
         ]
     ]},
