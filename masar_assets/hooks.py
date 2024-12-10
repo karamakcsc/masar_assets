@@ -132,19 +132,19 @@ doc_events = {
         "on_change": "masar_assets.custom.email_queue.email_queue.masked_message"
     }
 }
-doctype_js = {
-    "Asset" : "custom/asset/asset.js", 
-    "User" : "custom/user/user.js",
-    "Role" : "custom/role/role.js",
-    "Location" : "custom/location/location.js",
-    "Asset Category" : "custom/asset_category/asset_category.js",
-    "Item" : "custom/item/item.js",
-    "Asset Movement" : "custom/asset_movement/asset_movement.js",
-    "Supplier" : "custom/supplier/supplier.js",
-    "Supplier Group" : "custom/supplier_group/supplier_group.js",
-    "Department" : "custom/department/department.js", 
-    "Role Profile" : "custom/role_profile/role_profile.js",
-}
+# doctype_js = {
+#     "Asset" : "custom/asset/asset.js", 
+#     "User" : "custom/user/user.js",
+#     "Role" : "custom/role/role.js",
+#     "Location" : "custom/location/location.js",
+#     "Asset Category" : "custom/asset_category/asset_category.js",
+#     "Item" : "custom/item/item.js",
+#     "Asset Movement" : "custom/asset_movement/asset_movement.js",
+#     "Supplier" : "custom/supplier/supplier.js",
+#     "Supplier Group" : "custom/supplier_group/supplier_group.js",
+#     "Department" : "custom/department/department.js", 
+#     "Role Profile" : "custom/role_profile/role_profile.js",
+# }
 
 # Scheduled Tasks
 # ---------------
