@@ -28,11 +28,31 @@ class MyPage {
 
     make() {
         const body = `
-            <h1>Asset Query</h1>
+           <h1>Asset Query</h1>
             <button type="button" id="asset-button">By Asset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" id="location-button">By Location</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" id="category-button">By Category</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" id="multi-button">Multi Filters</button><br><br>
+            
+            <style>
+                .select2-container {
+                    min-width: 200px;
+                    margin-bottom: 10px;
+                }
+                .select2-search__field {
+                    width: 290px !important;
+                }
+                .select2-container--default .select2-selection--single {
+                    height: 32px;
+                    border: 1px solid #ccc;
+                }
+                .select2-container--default .select2-selection--single .select2-selection__rendered {
+                    line-height: 32px;
+                }
+                .select2-container--default .select2-selection--single .select2-selection__arrow {
+                    height: 30px;
+                }
+            </style>
             <form id="asset-form" style="display: none;"> 
                 <label for="asset-input">ID:</label>
                 <input type="text" id="asset-input" name="asset"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -78,6 +98,20 @@ class MyPage {
             <div id="multi-result-container"> </div>
         `;
         this.page.main.html(body);
+
+        if (!$('link[href*="select2"]').length) {
+            $('<link>').appendTo('head')
+                .attr({type: 'text/css', rel: 'stylesheet'})
+                .attr('href', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css');
+        }
+        
+        if (!$.fn.select2) {
+            $.getScript('https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', () => {
+                this.initializeSelect2();
+            });
+        } else {
+            this.initializeSelect2();
+        }
         // Event listeners
         $("#multi-back-button").on("click", () => {
             $("#multi-form").hide();
@@ -263,6 +297,43 @@ class MyPage {
         this.ForMulti();
     }
 
+    initializeSelect2() {
+        $("#location, #multi-location").select2({
+            placeholder: "Search and Select Location",
+            allowClear: true,
+            width: '300px',
+            dropdownParent: this.page.main,
+            language: {
+                noResults: function() {
+                    return "No locations found";
+                }
+            }
+        });
+    
+        $("#category, #multi-category").select2({
+            placeholder: "Search and Select Category",
+            allowClear: true,
+            width: '300px',
+            dropdownParent: this.page.main,
+            language: {
+                noResults: function() {
+                    return "No categories found";
+                }
+            }
+        });
+    
+        $("#multi-department").select2({
+            placeholder: "Search and Select Department",
+            allowClear: true,
+            width: '300px',
+            dropdownParent: this.page.main,
+            language: {
+                noResults: function() {
+                    return "No departments found";
+                }
+            }
+        });
+    }
     getAssetInCategory() {
         let category = $("#category").val();
         frappe.call({
@@ -393,74 +464,61 @@ class MyPage {
         });
     }
 
-    GetAssetCategoryOptions() {
-        frappe.call({
-            method: "masar_assets.api.get_category",
-            callback: (response) => {
-                let options = '<option value="">Select Category</option>';
-                response.message.forEach((category) => {
-                    options += `<option value="${category.name}">${category.name}</option>`;
-                });
-                $("#category").html(options);
-                if (this.selectedCategory) {
-                    $("#category").val(this.selectedCategory);
-                }
-            }
-        });
-    }
-
     populateLocationDropdown() {
         frappe.call({
             method: "masar_assets.api.get_location",
             callback: (response) => {
-                let options = '<option value="">Select Location</option>';
+                let $location = $("#location, #multi-location");
+                $location.empty().append('<option></option>'); // Required for placeholder to work
+    
                 response.message.forEach((item) => {
-                    options += `<option value="${item.name}">${item.name}</option>`;
+                    $location.append(new Option(item.name, item.name, false, false));
                 });
-                $("#location").html(options);
+    
+                $location.trigger('change');
+                
                 if (this.selectedLocation) {
-                    $("#location").val(this.selectedLocation);
+                    $location.val(this.selectedLocation).trigger('change');
                 }
             }
         });
     }
-    ForMulti(){
-        frappe.call({
-            method: "masar_assets.api.get_location",
-            callback: (response) => {
-                let options = '<option value="">Select Location</option>';
-                response.message.forEach((item) => {
-                    options += `<option value="${item.name}">${item.name}</option>`;
-                });
-                $("#multi-location").html(options);
-                if (this.selectedLocation) {
-                    $("#multi-location").val(this.selectedLocation);
-                }
-            }
-        });
+    
+    GetAssetCategoryOptions() {
         frappe.call({
             method: "masar_assets.api.get_category",
             callback: (response) => {
-                let options = '<option value="">Select Category</option>';
+                let $category = $("#category, #multi-category");
+                $category.empty().append('<option></option>'); // Required for placeholder to work
+    
                 response.message.forEach((category) => {
-                    options += `<option value="${category.name}">${category.name}</option>`;
+                    $category.append(new Option(category.name, category.name, false, false));
                 });
-                $("#multi-category").html(options);
+    
+                $category.trigger('change');
+                
                 if (this.selectedCategory) {
-                    $("#multi-category").val(this.selectedCategory);
+                    $category.val(this.selectedCategory).trigger('change');
                 }
             }
         });
+    }
+    
+    ForMulti() {        
         frappe.call({
             method: "masar_assets.api.get_department",
             callback: (response) => {
-                let options = '<option value="">Select Department</option>';
+                let $department = $("#multi-department");
+                $department.empty().append('<option></option>'); // Required for placeholder to work
+    
                 response.message.forEach((department) => {
-                    options += `<option value="${department.name}">${department.name}</option>`;
+                    $department.append(new Option(department.name, department.name, false, false));
                 });
-                $("#multi-department").html(options);
-                if (this.selectedDepartmenty) {
-                    $("#multi-department").val(this.selectedDepartment);
+    
+                $department.trigger('change');
+                
+                if (this.selectedDepartment) {
+                    $department.val(this.selectedDepartment).trigger('change');
                 }
             }
         });
