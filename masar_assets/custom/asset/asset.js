@@ -42,7 +42,7 @@ function set_doctype_read_only(frm) {
 }
 
 function set_current_location(frm) {
-    if (frm.doc.__islocal != 0 && frm.doc.location) {
+    if (frm.doc.__islocal != 1 && frm.doc.location) {
         frappe.call({
             method: "masar_assets.custom.asset.asset.get_current_department",
             args: {
