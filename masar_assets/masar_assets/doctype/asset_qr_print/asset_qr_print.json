@@ -8,10 +8,14 @@
  "field_order": [
   "asset_name",
   "item_code",
+  "from_date",
+  "from_barcode",
   "naming_series",
   "column_break_jiiz",
   "location",
   "asset_category",
+  "to_date",
+  "to_barcode",
   "section_break_jdxa",
   "filtered_assets_table",
   "amended_from"
@@ -71,12 +75,34 @@
    "hidden": 1,
    "label": "Naming Series",
    "options": "QR-PRINT-LABEL-"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "from_barcode",
+   "fieldtype": "Link",
+   "label": "From Barcode",
+   "options": "Asset"
+  },
+  {
+   "fieldname": "to_barcode",
+   "fieldtype": "Link",
+   "label": "To Barcode",
+   "options": "Asset"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-23 11:00:19.784413",
+ "modified": "2025-06-18 12:54:44.087375",
  "modified_by": "Administrator",
  "module": "Masar Assets",
  "name": "Asset QR Print",

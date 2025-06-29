@@ -50,3 +50,20 @@ def generate_qr_code_py(self):
 	qr = get_qr_code(qr_code)
 	self.custom_qr_code = qr
 	self.custom_qr_code_text = qr
+
+@frappe.whitelist()
+def get_current_department(location, a_name):
+    dep_sql = frappe.db.sql("""
+            SELECT custom_department
+            FROM tabLocation 
+            WHERE name = %s
+		""", (location,), as_dict=True)
+    
+    if dep_sql and dep_sql[0] and dep_sql[0]['custom_department']:
+        cur_department = dep_sql[0]['custom_department']
+        a_doc = frappe.get_doc("Asset", a_name)
+        if a_doc.custom_current_department != cur_department:
+            frappe.db.set_value("Asset", a_name, "custom_current_department", cur_department)
+            return 1
+    else:
+        return None

@@ -269,7 +269,17 @@ fixtures = [
                 "Asset Movement-custom_section_break_19t3x",
                 "Asset Movement-custom_notes",
                 "Asset Movement Item-custom_section_break_ll3u8",
-                "Asset Movement Item-custom_notes"
+                "Asset Movement Item-custom_notes",
+                "Asset-custom_brand",
+                "Asset-custom_model",
+                "Asset-custom_more_details",
+                "Asset-custom_serial_number",
+                "Asset-custom_purchase_order_no",
+                "Asset-custom_column_break_6ec4b",
+                "Asset-custom_section_break_5negt",
+                "Location-custom_department",
+                "Asset-custom_current_department",
+                "Asset-custom_transaction_date"
             ]
         ]
     ]},

@@ -3,11 +3,13 @@ frappe.ui.form.on('Asset', {
         frm.clear_custom_buttons();
         hide_fields(frm);
         set_doctype_read_only(frm);
+        set_current_location(frm);
     },
     onload: function(frm){
         frm.clear_custom_buttons(); 
         hide_fields(frm);
         set_doctype_read_only(frm);
+        set_current_location(frm);
     },
     setup: function(frm){
         frm.clear_custom_buttons(); 
@@ -36,5 +38,26 @@ function set_doctype_read_only(frm) {
             frm.set_read_only(true);
             // frappe.show_alert('Form set to read-only mode for JKB Supply Chain-Checker', 5);
         }
+    }
+}
+
+function set_current_location(frm) {
+    if (frm.doc.__islocal != 0 && frm.doc.location) {
+        frappe.call({
+            method: "masar_assets.custom.asset.asset.get_current_department",
+            args: {
+                location: frm.doc.location,
+                a_name: frm.doc.name
+            },
+            callback: function(r) {
+                if (r.message) {                
+                    frm.refresh_field("custom_current_department");
+                    console.log("Success");
+                } else {
+                    frm.refresh_field("custom_current_department");
+                    console.log("Failure");
+                }
+            }
+        })
     }
 }

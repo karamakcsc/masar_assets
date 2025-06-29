@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Reader-.####",
+ "creation": "2025-06-29 09:33:00.104118",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "main_locations_tab",
+  "main_locations",
+  "sub_locations_tab",
+  "sub_locations",
+  "assets_tab",
+  "assets"
+ ],
+ "fields": [
+  {
+   "fieldname": "main_locations_tab",
+   "fieldtype": "Tab Break",
+   "label": "Main Locations"
+  },
+  {
+   "fieldname": "main_locations",
+   "fieldtype": "Long Text",
+   "label": "Main Locations",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sub_locations_tab",
+   "fieldtype": "Tab Break",
+   "label": "Sub Locations"
+  },
+  {
+   "fieldname": "sub_locations",
+   "fieldtype": "Long Text",
+   "label": "Sub Locations",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assets_tab",
+   "fieldtype": "Tab Break",
+   "label": "Assets"
+  },
+  {
+   "fieldname": "assets",
+   "fieldtype": "Long Text",
+   "label": "Assets",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-29 09:44:00.882128",
+ "modified_by": "Administrator",
+ "module": "Masar Assets",
+ "name": "Hand Set Asset",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
