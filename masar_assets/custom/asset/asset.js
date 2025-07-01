@@ -52,10 +52,8 @@ function set_current_location(frm) {
             callback: function(r) {
                 if (r.message) {                
                     frm.refresh_field("custom_current_department");
-                    console.log("Success");
                 } else {
                     frm.refresh_field("custom_current_department");
-                    console.log("Failure");
                 }
             }
         })

@@ -52,7 +52,7 @@ def generate_qr_code_py(self):
 	self.custom_qr_code_text = qr
 
 @frappe.whitelist()
-def get_current_department(location, a_name):
+def get_current_department(location, a_name): # custom field in location for department in location will use as current department
     dep_sql = frappe.db.sql("""
             SELECT custom_department
             FROM tabLocation 
